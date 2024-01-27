@@ -36,7 +36,7 @@ For virtual machine you need ```openbsbi, u-boot-qemu``` packages. Also you'll n
 ### Steps
 1. build qemu for RISC-V
 2. install & run RISC-V virtual machine using configuration script in ```qemu``` dir
-3. run ```cabal <path_to_source.sl> <path_to_dest.asm>```
+3. run ```cabal run Compiler-exe -- <path_to_source.sl> <path_to_dest.asm>```
 4. use ssh to send the asm file and ```stdlib``` to the virtual machine. Default port is 5555, but you can change it in qemu configuration script
 5. run ```make <name_of_asm_file> & ./a.out``` inside the ```stdlib``` directory on VM
 6. enjoy the result

@@ -12,7 +12,7 @@ main :: IO ()
 main = defaultMain =<< goldenTests
 
 execute srcFile inFile outFile = do
-  libContents <- readFile "src/Prelude.asm"
+  libContents <- readFile "stdlib/Prelude.asm"
   srcContents <- readFile srcFile
   let result = parse SlangLib.program srcFile srcContents
   case result of
