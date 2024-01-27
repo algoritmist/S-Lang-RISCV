@@ -1,0 +1,119 @@
+cabal-version: 3.8
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           Emulator
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/Emulator#readme>
+homepage:       https://github.com/githubuser/Emulator#readme
+bug-reports:    https://github.com/githubuser/Emulator/issues
+author:         Viacheslav Baranov
+maintainer:     alg0ritmist@mail.ru
+copyright:      2023 Viachelsav Baranov
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/algoritmist/Emulator
+
+library
+  exposed-modules:
+      , SlangLib
+      , ISA
+  other-modules:
+        Language
+      , Translator
+      , LanguageParser
+      , Paths_Emulator
+  autogen-modules:
+      Paths_Emulator
+  hs-source-dirs:
+      src
+  ghc-options: -g -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , parsec
+    , filepath
+    , regex-tdfa >=1.3.2 && <1.4
+    , containers
+  default-language: Haskell2010
+
+executable Emulator-exe
+  main-is: CPUEmulator.hs
+  other-modules:
+      Paths_Emulator
+  autogen-modules:
+      Paths_Emulator
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Emulator
+    , parsec
+    , filepath
+    , regex-tdfa >=1.3.2 && <1.4
+    , base >=4.7 && <5
+    , containers
+  default-language: Haskell2010
+
+executable Compiler-exe
+  main-is: Compiler.hs
+  other-modules:
+      Paths_Emulator
+  autogen-modules:
+      Paths_Emulator
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Emulator
+    , parsec
+    , filepath
+    , regex-tdfa >=1.3.2 && <1.4
+    , base >=4.7 && <5
+    , containers
+  default-language: Haskell2010
+
+test-suite Golden-tests
+  type: exitcode-stdio-1.0
+  main-is: Golden.hs
+  other-modules:
+      Paths_Emulator
+  autogen-modules:
+      Paths_Emulator
+  hs-source-dirs:
+      test/golden
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Emulator
+    , tasty-golden >=2.3
+    , tasty, bytestring
+    , filepath
+    , parsec
+    , regex-tdfa >=1.3.2 && <1.4
+    , utf8-string
+    , containers
+    , base >=4.7 && <5
+test-suite Unit-tests
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_Emulator
+  autogen-modules:
+      Paths_Emulator
+  hs-source-dirs:
+      test/unit
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Emulator
+    , containers
+    , HUnit >= 1.6
+    , base >=4.7 && <5
+  default-language: Haskell2010
