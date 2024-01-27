@@ -12,7 +12,7 @@ FunctionCall ::= FunctionName CallArgs
 LetExpr ::= "let" [VariableDefinition] "in" VariableDefinition
 IfThenElseExpr ::= "if" Expr "then" [Expr] | "if" Expr "then" [Expr] "else" [Expr]
 BinOp ::= + | - | * | / | == | > | < | /= | ++
-UnOp ::= - | not | head | tail
+UnOp ::= -
 CallArgs ::= (Expr)
 FunctionName ::= Name
 VariableName ::= Name
