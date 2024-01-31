@@ -3,7 +3,7 @@
 {-# LANGUAGE TupleSections         #-}
 
 
-module Translator where
+module Translator(translate) where
 import           Data.Char (ord)
 import           Data.List (sortOn)
 import           Data.Map  (Map, assocs, delete, elems, empty, fromList, insert,
