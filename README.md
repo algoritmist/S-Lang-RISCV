@@ -1,5 +1,5 @@
-# Slang RISC-V
-Slang compiler for RISC-V 64-bit architecture.
+# S-Lang RISC-V
+S-Lang compiler for RISC-V 64-bit architecture.
 
 ## Language Syntax
 ```Haskell
